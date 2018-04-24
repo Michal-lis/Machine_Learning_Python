@@ -2,9 +2,14 @@ import pandas as pd
 import quandl
 import math
 import numpy as np
+import datetime
+import matplotlib.pyplot as plt
 
+from matplotlib import style
 from sklearn import preprocessing, cross_validation, svm
 from sklearn.linear_model import LinearRegression
+
+style.use('ggplot')
 
 # quandl - 50 free counts a day
 # google alphabet stock data
@@ -36,30 +41,28 @@ df.dropna(inplace=True)
 
 # features, df.drop return a dataframe without a given column
 X = np.array(df.drop(['label'], 1))
+X = preprocessing.scale(X)
+X = X[:-forecast_out]
+X_lately = X[-forecast_out:]
+df.dropna(inplace=True)
 
 # labels
-y = np.array(df['label'])
-
-X = preprocessing.scale(X)
-# X = X[:-forecast_out + 1]
-df.dropna(inplace=True)
-y = np.array(df['label'])
+y = np.array(df['label'])[:-forecast_out]
 
 # checking the consistent numbers of samples within the input variables
 print(len(X), len(y))
 
+if len(X) != len(y):
+    exit()
+
 X_train, X_test, y_train, y_test = cross_validation.train_test_split(X, y, test_size=0.2)
 # n_jobs specifies the threads
-clf1 = LinearRegression(n_jobs=10)
+clf = LinearRegression(n_jobs=10)
 # fitting the classifier on training probes
-clf1.fit(X_train, y_train)
+clf.fit(X_train, y_train)
 # test the classifier
-accuracy1 = clf1.score(X_test, y_test)
+accuracy = clf.score(X_test, y_test)
+forecast_set = clf.predict(X_lately)
+print(forecast_set, accuracy, forecast_out)
 
-clf2 = svm.SVR()
-# fitting the classifier on training probes
-clf2.fit(X_train, y_train)
-# test the classifier
-accuracy2 = clf2.score(X_test, y_test)
-
-print(accuracy1, accuracy2)
+df['Forecast'] = np.nan
