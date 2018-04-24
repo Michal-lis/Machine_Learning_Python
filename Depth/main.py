@@ -23,16 +23,18 @@ df = df[['Adj. Close', 'HL_PCT', 'PCT_change', 'Adj. Volume']]
 forecast_col = 'Adj. Close'
 
 # in machine learning you cannot work with NaN data, but generally a lot of data will be missing
-# 99999 will not influence the algorithm
+# so lets replace it, 99999 will not influence the algorithm
 df.fillna(-99999, inplace=True)
 
-# for how many days in the future the prediction will be done
+# for how many days in the future the prediction will be done, integer number
 forecast_out = int(math.ceil(0.01 * len(df)))
+print(forecast_out)
+
+# .shift moves one series in dataframe up or down, negative moves series up (NaN in the last rows
 df['label'] = df[forecast_col].shift(-forecast_out)
 df.dropna(inplace=True)
-print(df.head())
 
-# features
+# features, df.drop return a dataframe without a given column
 X = np.array(df.drop(['label'], 1))
 
 # labels
@@ -47,7 +49,18 @@ y = np.array(df['label'])
 print(len(X), len(y))
 
 X_train, X_test, y_train, y_test = cross_validation.train_test_split(X, y, test_size=0.2)
-clf = LinearRegression()
-clf.fit(X_train, y_train)
-accuracy = clf.score(X_test, y_test)
+clf1 = LinearRegression()
+# fitting the classifier on training probes
+clf1.fit(X_train, y_train)
+# test the classifier
+accuracy1 = clf1.score(X_test, y_test)
+
+clf2 = svm.SVR()
+# fitting the classifier on training probes
+clf2.fit(X_train, y_train)
+# test the classifier
+accuracy2 = clf2.score(X_test, y_test)
+
+print(accuracy1, accuracy2)
+
 print(accuracy)
