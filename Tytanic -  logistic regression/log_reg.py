@@ -63,8 +63,6 @@ print(train_data.isnull().sum())
 
 # Mergining two variables which are possibly multicollinear into one Variable ('TravellingAlone")
 # train_data['TravelAlone'] = np.where((train_data['SibSp'] + train_data['Parch'] > 0, 0, 1))
-train_data.drop('SibSp', axis='columns', inplace=True)
-train_data.drop('Parch', axis='columns', inplace=True)
 
 # create categorical variables and drop some variables
 training = pd.get_dummies(train_data, columns=["Pclass", "Embarked", "Sex"])
@@ -84,10 +82,6 @@ test_data["Fare"].fillna(train_df["Fare"].median(skipna=True), inplace=True)
 test_data.drop('Cabin', axis=1, inplace=True)
 test_data['Embarked'].fillna(train_df['Embarked'].value_counts().idxmax(), inplace=True)
 # test_data['TravelAlone'] = np.where((test_data["SibSp"] + test_data["Parch"] > 0, 0, 1))
-
-test_data.drop('SibSp', axis=1, inplace=True)
-test_data.drop('Parch', axis=1, inplace=True)
-
 testing = pd.get_dummies(test_data, columns=["Pclass", "Embarked", "Sex"])
 testing.drop('Sex_female', axis=1, inplace=True)
 testing.drop('PassengerId', axis=1, inplace=True)
@@ -108,14 +102,11 @@ plt.legend(['Survived', 'Died'])
 plt.title('Density Plot of Age for Surviving Population and Deceased Population')
 ax.set(xlabel='Age')
 plt.xlim(-10, 85)
-plt.show()
-
+# plt.show()
 final_train['IsMinor'] = np.where(final_train['Age'] <= 16, 1, 0)
-
 final_test['IsMinor'] = np.where(final_test['Age'] <= 16, 1, 0)
 
 # FARE
-
 plt.figure(figsize=(15, 8))
 ax = sns.kdeplot(final_train["Fare"][final_train.Survived == 1], color="darkturquoise", shade=True)
 sns.kdeplot(final_train["Fare"][final_train.Survived == 0], color="lightcoral", shade=True)
@@ -123,12 +114,42 @@ plt.legend(['Survived', 'Died'])
 plt.title('Density Plot of Fare for Surviving Population and Deceased Population')
 ax.set(xlabel='Fare')
 plt.xlim(-20, 200)
-plt.show()
+# plt.show()
 # we can see that the passangers who paid less for their ticket are more likely to die
 
-
 # Passenger Class
-
 sns.barplot('Pclass', 'Survived', data=train_df, color="darkturquoise")
-plt.show()
+# plt.show()
 # Being in the first class tuns out to be the safest
+
+# Embarked Port
+sns.barplot('Embarked', 'Survived', data=train_df, color="darkturquoise")
+# LOGISTIC REGRESSION
+# RFE - Recursive Feature Elimination - selecting features by recursively considering smaller and smaller sets of features
+# coef_attribute - calculating the importance of each coefficeint
+from sklearn.linear_model import LogisticRegression
+from sklearn.feature_selection import RFE
+
+cols = ["Age", "Fare", "SibSp", "Parch", "Pclass_1", "Pclass_2", "Embarked_C", "Embarked_S", "Sex_male", "IsMinor"]
+X = final_train[cols]
+y = final_train['Survived']
+
+model = LogisticRegression()
+# 8 is the number of attributes we want to reach
+rfe = RFE(model, 8)
+rfe = rfe.fit(X, y)
+
+# RFECV -  find the optimal number of features
+from sklearn.feature_selection import RFECV
+
+rfecv = RFECV(estimator=LogisticRegression(), step=1, cv=10, scoring='accuracy')
+rfecv.fit(X, y)
+
+print("Optimal number of features: %d" % rfecv.n_features_)
+print('Selected features: %s' % list(X.columns[rfecv.support_]))
+
+Selected_features = list(X.columns[rfecv.support_])
+X = final_train[Selected_features]
+plt.subplots(figsize=(8, 5))
+sns.heatmap(X.corr(), annot=True, cmap="RdYlGn")
+plt.show()

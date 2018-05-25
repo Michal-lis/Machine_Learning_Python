@@ -1,26 +1,29 @@
-#pd
-# .value_counts()
-# inplace=True
-# .get_dummies -  creating a categorical variables (from C,s,M to 0/1 on C S, M)
-# final_train["Age"][final_train.Survived == 1] z dataframu final_train wybierasz te "age w których Survived==1
+# 1.IMPORT PYTHON PACKAGES
+import pandas as pd
 
+import numpy as np
 
-# np
-# np.where(condition  (+=OR),1,0)
+import matplotlib.pyplot as plt
 
-# sns
-# sns.kdeplot(final_train["Age"][final_train.Survived == 0], color="lightcoral", shade=True)
+plt.rc("font", size=14)
 
-# For numerical visualisations:
-# plt.figure(figsize=(15, 8))
-# ax = sns.kdeplot(final_train["Fare"][final_train.Survived == 1], color="darkturquoise", shade=True)
-# sns.kdeplot(final_train["Fare"][final_train.Survived == 0], color="lightcoral", shade=True)
-# plt.legend(['Survived', 'Died'])
-# plt.title('Density Plot of Fare for Surviving Population and Deceased Population')
-# ax.set(xlabel='Fare')
-# plt.xlim(-20, 200)
-# plt.show()
+import seaborn as sns
 
-# For categorical visualisations:
-# sns.barplot('Pclass', 'Survived', data=train_df, color="darkturquoise")
-# plt.show()
+sns.set(style="white")  # white background style for seaborn plots
+sns.set(style="whitegrid", color_codes=True)
+
+from sklearn.linear_model import LogisticRegression
+from  sklearn.feature_selection import RFE
+
+# 2.IMPORT DATA
+
+train_df = pd.read_csv("")
+test_df = pd.read_csv("")
+
+train_df.head()
+
+# 3.DATA QUALITY AND MISSING VALUES
+
+# 4.EXPLANATORY DATA ANALYSIS
+
+# 5.METHODS IMPLEMENTATIONS AND RESULTS
