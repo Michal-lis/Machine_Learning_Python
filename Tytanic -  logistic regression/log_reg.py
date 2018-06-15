@@ -125,8 +125,7 @@ sns.barplot('Pclass', 'Survived', data=train_df, color="darkturquoise")
 # Embarked Port
 sns.barplot('Embarked', 'Survived', data=train_df, color="darkturquoise")
 # LOGISTIC REGRESSION
-# RFE - Recursive Feature Elimination - selecting features by recursively considering smaller and smaller sets of features
-# coef_attribute - calculating the importance of each coefficeint
+
 from sklearn.linear_model import LogisticRegression
 from sklearn.feature_selection import RFE
 
