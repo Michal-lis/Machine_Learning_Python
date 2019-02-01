@@ -29,7 +29,7 @@ print(train_df.isnull().sum())
 # We can see that there are 177 Age missing, 687 Cabin missing and 2 Embarked missing
 print('Percent of missing "Age" records is %.2f%%' % ((train_df['Age'].isnull().sum() / train_df.shape[0]) * 100))
 # almost 20% of age data missing, lets visualise the age parameter
-# from visualisation we can see than the histogram is skewed, so we will not use the mean but the average value of age
+# from visualisation we can see than the histogram is skewed, so we will not use the median but the average value of age
 # mean age
 print('The mean of "Age" is %.2f' % (train_df["Age"].mean(skipna=True)))
 # median age
@@ -40,7 +40,7 @@ print('Percent of missing "Cabin" records is %.2f%%' % ((train_df['Cabin'].isnul
 # since 77% of Cabin data is missing, we will omit this information in our model
 
 # EMBARKED
-print('Percent of missing "Embarked" records is %.2f%%' % (
+print('Per  cent of missing "Embarked" records is %.2f%%' % (
     (train_df['Embarked'].isnull().sum() / train_df.shape[0]) * 100))
 # oly 2 data are missing out of 1200 so we will impute the most popular port
 
