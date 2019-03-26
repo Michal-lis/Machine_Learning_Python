@@ -3,42 +3,42 @@ This repository was created to keep track of data science learning progress, but
 ### My knowledge sources split by topics (ranked starting from the preferred ones):
 
 ##### Intro and Supervised Learning:
-- Undergraduate Machine Learning, Nando De Freitas, University British Columbia. The best machine learning course I have seen on the internet so far. Great explanation of maths and basic ML concepts like PCA
+- Undergraduate Machine Learning, Nando De Freitas, University British Columbia. The best machine learning course I have seen on the internet so far. Great explanation of maths and basic ML concepts like PCA etc. <br/>
  https://www.youtube.com/playlist?list=PLE6Wd9FR--Ecf_5nCbnSQMHqORpiChfJf
  
-- Graduate Machine Learning, Nando De Freitas, University British Columbia. Can be treated as a continuation of the previous course.
+- Graduate Machine Learning, Nando De Freitas, University British Columbia. Can be treated as a continuation of the previous course. <br/>
 https://www.youtube.com/watch?v=w2OtwL5T1ow&list=PLE6Wd9FR--EdyJ5lbFl8UuGjecvVw66F6
 
-- Youtube videos by Josh Starmer, very funny and entertaining, contain basic maths and ML concepts 
+- Youtube videos by Josh Starmer, very funny and entertaining, contain basic maths and ML concepts <br/>
 https://www.youtube.com/watch?v=EuBBz3bI-aA&list=PLblh5JKOoLUICTaGLRoHQDuF_7q2GfuJF&index=5
 
-- UCL Machine learning courses
+- UCL Machine learning courses <br/>
 http://www.cs.ucl.ac.uk/prospective_students/msc_machine_learning/
 
-- Victor Lavrenko Applied Machine Learning course at University of Edinburgh, short but very informative https://www.youtube.com/watch?v=GVz6Y8r5AkY&list=PLBv09BD7ez_7qIbBhyQDr-LAKWUeycZtx
+- Victor Lavrenko Applied Machine Learning course at University of Edinburgh, short but very informative <br/>  https://www.youtube.com/watch?v=GVz6Y8r5AkY&list=PLBv09BD7ez_7qIbBhyQDr-LAKWUeycZtx
 
-- the famous Andrew Ng course from, Stanford University Coursera, it's decent for the first time for people with completely no previous expereience with ML 
+- the famous Andrew Ng course from, Stanford University Coursera, it's decent for the first time for people with completely no previous expereience with ML <br/>
 https://www.coursera.org/learn/machine-learning
-or
+or <br/>
 https://www.youtube.com/watch?v=-la3q9d7AKQ&list=PLLssT5z_DsK-h9vYZkQkYNWcItqhlRJLN&index=32
 
 ##### Natural Language Processing:
-- Statistical NLP course at UCL, by 
+- Statistical NLP course at UCL, by <br/>
 https://github.com/uclmr/stat-nlp-book
 
 ##### Neural Networks, Deep Learning and Reinforcement Learning:
-- Deep Learning at Oxford 2015, Nando de Freitas at University of Oxford.
+- Deep Learning at Oxford 2015, Nando de Freitas at University of Oxford. <br/>
 https://www.youtube.com/watch?v=dV80NAlEins&list=PLE6Wd9FR--EfW8dtjAuPoTuPcqmOV53Fu
 
-- Convolutional Neural Networks for Visual Recognition, Stanford. Although the topic seems advanced, the course covers also an introduction to ANNs.
+- Convolutional Neural Networks for Visual Recognition, Stanford. Although the topic seems advanced, the course covers also an introduction to ANNs. <br/>
 https://www.youtube.com/watch?v=vT1JzLTH4G4&list=PL3FW7Lu3i5JvHM8ljYj-zLfQRF3EO8sYv
 
 ##### Applied Machine Learning, intro to various libraries:
 - pythonprogramming.com
 
 ### Different Machine learning cases:
-- Predict survival on the Titanic and get familiar with ML basics. Very good for beginners
+- Predict survival on the Titanic and get familiar with ML basics. Very good for beginners <br/>
 https://www.kaggle.com/c/titanic 
 
-- Fifa19 with 90 players' features extracted. For football fans!
+- Fifa19 with 90 players' features extracted. For football fans! <br/>
 https://www.kaggle.com/karangadiya/fifa19 
