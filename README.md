@@ -1,5 +1,4 @@
 This repository was created to keep track of data science learning progress, but also to share the sources I am using as more and more people kept asking me where to look for ML courses:
-[GitHub Pages](https://pages.github.com/)
 ### My knowledge sources split by topics (ranked starting from the preferred ones):
 
 ##### Intro and Supervised Learning:
