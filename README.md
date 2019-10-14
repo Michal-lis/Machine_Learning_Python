@@ -22,6 +22,18 @@ or <br/>
 https://www.youtube.com/watch?v=-la3q9d7AKQ&list=PLLssT5z_DsK-h9vYZkQkYNWcItqhlRJLN&index=32
 
 ##### Natural Language Processing:
+- Nice brief introduction to NLP, current challenges etc. Provided by Rachel Thomas from fast.ai. <br/>
+https://github.com/fastai/course-nlp
+
+- Introduction to NLP from Stanford University, by Dan Jurafsky and Chris Manning. Covers introduction, classical approaches and more statistical ML approaches (everything prior to Deep NLP). Also covers basics for information retrieval (basics of search engine). This course is probably the best online material to start your adventure with NLP. <br/>
+https://www.youtube.com/watch?v=3Dt_yh1mf_U&list=PLQiyVNMpDLKnZYBTUOlSI9mi9wAErFtFm
+
+- Stanford CS 224U - Natural Language Understanding by Dan Jurafsky. Covers word embeddings, sentiment analysis, evaluation metrics. As always from Stanford - very good stuff and takes only 15 hours to go through so it is useful material before jumping into Deep NLP. <br/>
+https://www.youtube.com/watch?v=tZ_Jrc_nRJY&list=PLoROMvodv4rObpMCir6rNNUlFAn56Js20
+
+- Stanford Deep Learning for NLP by Chris Manning. Covers introduction to Neural Networks, NN architectures applied to NLP problems such as Neural Translation and also recent advancements in the fiels such as Transformers and BERT. Crazy that this material is available for free online :). <br/>
+https://www.youtube.com/watch?v=OQQ-W_63UgQ&list=PL3FW7Lu3i5Jsnh1rnUwq_TcylNr7EkRe6
+
 - Statistical NLP course at UCL, by <br/>
 https://github.com/uclmr/stat-nlp-book
 
